@@ -3,9 +3,16 @@ require('dotenv').config();
 
 import { createApp } from './app';
 
-const app = createApp();
+async function init() {
+  const app = await createApp({
+    mongoUri: process.env.MONGO_URI,
+    dbName: process.env.DB_NAME,
+  });
 
-const port = process.env.PORT || 3000;
-app.listen(port, () => {
-  console.log(`server started on port ${port}`);
-});
+  const port = process.env.PORT || 3000;
+  app.listen(port, () => {
+    console.log(`server started on port ${port}`);
+  });
+}
+
+init();

@@ -16,7 +16,9 @@ Make/copy your `.env` file:
 
 ```
 MONGO_URI=
-MONGO_TEST_URI=
+TEST_MONGO_URI=
+DB_NAME=careerday
+TEST_DB_NAME=tests
 ```
 
 Run the development server:
