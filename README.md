@@ -40,3 +40,5 @@ npm run lint
 ```
 
 Find more scripts in `package.json`.
+
+Access GraphiQL at http://localhost:3000/graphql
