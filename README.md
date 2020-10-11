@@ -6,35 +6,21 @@ Connecting teachers with industry professionals or whatever idk TODO: write some
 
 ### Development Setup
 
-Clone this repo, then install dependencies:
-
-```
-npm install
-```
-
-Make/copy your `.env` file:
-
-```
-MONGO_URI=
-TEST_MONGO_URI=
-DB_NAME=careerday
-TEST_DB_NAME=tests
-```
+Ensure you have docker installed and clone this repo.
 
 Run the development server:
+```
+docker-compose up
+```
 
-```
-npm run dev
-```
+Then, while the docker instance is still running:
 
 Run tests:
-
 ```
-npm run test
+docker-compose exec app npm run test
 ```
 
 Lint your files:
-
 ```
 npm run lint
 ```
@@ -42,3 +28,10 @@ npm run lint
 Find more scripts in `package.json`.
 
 Access GraphiQL at http://localhost:3000/graphql
+
+### Command Reference
+
+Connect to the database
+```
+docker-compose exec db psql -U postgres -d postgres
+```
