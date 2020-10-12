@@ -12,6 +12,7 @@ services:
       - DB_DATABASE=postgres
       - DB_HOST=db
       - DB_PORT=5432
+      - DB_NAME=careerday
     depends_on:
       - db
     networks:
@@ -22,6 +23,7 @@ services:
     environment:
       - POSTGRES_USER=postgres
       - POSTGRES_HOST_AUTH_METHOD=trust
+      - POSTGRES_DB=careerday
     ports:
       - '5433:5432'
     networks:

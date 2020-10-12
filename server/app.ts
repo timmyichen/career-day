@@ -1,22 +1,12 @@
 import express from 'express';
 import bodyParser from 'body-parser';
-import { connectMongo } from './lib/db';
+import { connectDb } from './lib/db';
 import { applyGraphqlMiddleware } from './lib/apolloServer';
 
-interface Options {
-  mongoUri: string | undefined;
-  dbName: string | undefined;
-}
-
-export async function createApp({ mongoUri, dbName }: Options) {
-  if (!mongoUri || !dbName) {
-    throw new Error('missing mongoUri/dbName env vars');
-  }
-
+export async function createApp() {
   const app = express();
 
-  await connectMongo({ mongoUri, dbName });
-  console.log('\nconnected to database\n');
+  await connectDb();
 
   // middlewares
   app.use(bodyParser.urlencoded({ extended: false }));

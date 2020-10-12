@@ -4,20 +4,17 @@ require('dotenv').config();
 import express from 'express';
 import request from 'supertest';
 import { createApp } from '../app';
-import { getClient } from '../lib/db';
+import { getConnection } from '../lib/db';
 
 class TestApp {
   app: express.Application | undefined;
 
   async init() {
-    this.app = await createApp({
-      mongoUri: process.env.TEST_MONGO_URI,
-      dbName: process.env.TEST_DB_NAME,
-    });
+    this.app = await createApp();
   }
 
   async cleanup() {
-    getClient().close();
+    getConnection().close();
   }
 
   validateAppExists() {
