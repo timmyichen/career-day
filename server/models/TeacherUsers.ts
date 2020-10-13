@@ -1,10 +1,10 @@
-import { Entity, JoinColumn, ManyToOne, OneToOne, PrimaryColumn, Unique } from 'typeorm';
+import { BaseEntity, Entity, JoinColumn, ManyToOne, OneToOne, PrimaryColumn, Unique } from 'typeorm';
 import School from './Schools';
 import Users from './Users';
 
 @Entity()
 @Unique(['user_id'])
-export default class TeacherUsers {
+export default class TeacherUsers extends BaseEntity {
   @OneToOne(() => Users, (user) => user.id)
   @JoinColumn()
   @PrimaryColumn()
