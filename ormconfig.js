@@ -16,8 +16,8 @@ module.exports = {
   database,
   synchronize: true,
   logging: false,
-  entities: ['server/models/**/*.ts'],
-  migrations: ['server/migrations/**/*.ts'],
+  entities: ['server/models/*.ts'],
+  migrations: ['server/migrations/*.ts'],
   cli: {
     migrationsDir: 'server/migrations',
   },

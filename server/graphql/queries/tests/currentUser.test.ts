@@ -30,12 +30,13 @@ describe('currentUser query', () => {
   });
 
   it('should return the user for a logged-in user', async () => {
-    // TODO: make this an actual user in the database
-    const user = new Users();
-    user.id = 1;
-    user.name = 'some name';
-    user.email = 'email';
-    user.password = 'security';
+    const user = Users.create({
+      id: 1,
+      name: 'some name',
+      email: 'x@y.com',
+      password: 'secure',
+    });
+    await user.save();
 
     server.login(user);
     const res = await server.makeGqlReq({ query: currentUserQuery, operationName });

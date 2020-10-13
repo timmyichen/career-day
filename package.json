@@ -10,9 +10,9 @@
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "migrations:run": "npm run typeorm migration:run",
-    "test": "NODE_ENV=test npm run test:setup && npm run test:server",
-    "test:server": "jest server/",
-    "test:server:watch": "NODE_ENV=test npm run test:setup && npm run test:server -- --watch",
+    "test": "npm run test:server",
+    "test:server": "NODE_ENV=test npm run test:setup && jest server/",
+    "test:server:watch": "NODE_ENV=test npm run test:setup && jest server/ --watch",
     "test:setup": "node ./server/test/setup",
     "typeorm": "ts-node ./node_modules/typeorm/cli.js"
   },

@@ -1,4 +1,5 @@
 import { Connection, createConnection } from 'typeorm';
+import path from 'path';
 
 let connection: Connection;
 
@@ -22,6 +23,7 @@ export async function connectDb() {
     username: process.env.DB_USER,
     password: process.env.DB_PASSWORD || '',
     database,
+    entities: [path.join(__dirname, '../models/*.ts')],
   });
 
   console.log(`\nsuccessfully connected to db ${database}\n`);
