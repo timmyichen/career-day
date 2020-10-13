@@ -16,7 +16,7 @@ export async function createApp({ customMiddlewares }: { customMiddlewares?: Arr
     customMiddlewares.forEach((middleware) => app.use(middleware));
   }
 
-  applyGraphqlMiddleware(app);
+  await applyGraphqlMiddleware(app);
 
   app.get('/', (req, res) => {
     res.send('yay');

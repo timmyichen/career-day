@@ -1,8 +1,14 @@
 import express from 'express';
 import { ApolloServer } from 'apollo-server-express';
-import schema from '../graphql';
+import { buildSchema } from 'type-graphql';
+import currentUserResolver from '../graphql/queries/currentUser';
+import { GraphqlContext } from './types';
 
-export function applyGraphqlMiddleware(app: express.Express) {
-  const server = new ApolloServer({ schema });
+export async function applyGraphqlMiddleware(app: express.Express) {
+  const schema = await buildSchema({ resolvers: [currentUserResolver] });
+  const server = new ApolloServer({
+    schema,
+    context: ({ req }): GraphqlContext => ({ user: req.user }),
+  });
   server.applyMiddleware({ app, path: '/graphql' });
 }

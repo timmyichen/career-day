@@ -4,8 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "check-types": "tsc --noEmit",
     "dev": "nodemon -L",
-    "dev:server": "ts-node server/index.ts",
+    "dev:server": "ts-node --transpile-only server/index.ts",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "migrations:run": "npm run typeorm migration:run",
@@ -36,6 +37,7 @@
     "reflect-metadata": "^0.1.13",
     "supertest": "^5.0.0",
     "ts-node": "^9.0.0",
+    "type-graphql": "^1.1.0",
     "typeorm": "^0.2.28"
   },
   "devDependencies": {
