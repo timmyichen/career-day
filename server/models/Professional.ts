@@ -1,5 +1,5 @@
 import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
-
+import {User} from './User';
 
 export enum Race {
     WHITE = "white",
