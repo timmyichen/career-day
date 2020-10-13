@@ -5,11 +5,11 @@ import express from 'express';
 import request from 'supertest';
 import { createApp } from '../app';
 import { getConnection } from '../lib/db';
-import User from '../models/User';
+import Users from '../models/Users';
 
 class TestApp {
   app: express.Application | undefined;
-  loggedInUser: User | undefined;
+  loggedInUser: Users | undefined;
 
   async init() {
     this.app = await createApp({
@@ -22,7 +22,7 @@ class TestApp {
     });
   }
 
-  login(user: User) {
+  login(user: Users) {
     this.loggedInUser = user;
   }
 

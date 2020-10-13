@@ -1,5 +1,5 @@
 declare namespace Express {
   interface Request {
-    user?: import('../server/models/User').default;
+    user?: import('../server/models/Users').default;
   }
 }
