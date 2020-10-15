@@ -1,4 +1,4 @@
-import { BaseEntity, Entity, JoinColumn, ManyToOne, OneToOne, PrimaryColumn, Unique } from 'typeorm';
+import { BaseEntity, Column, Entity, JoinColumn, ManyToOne, OneToOne, PrimaryColumn, Unique } from 'typeorm';
 import Companies from './Companies';
 import Users from './Users';
 
@@ -46,10 +46,10 @@ export default class ProfessionalUsers extends BaseEntity {
   company_id!: string;
 
   @Column({
-    type: enum, 
+    type: "enum", 
     nullable: false,
     enum: ProfessionalRole,
-    default: ProfessionalRole.None
+    default: ProfessionalRole.NONE
   })
   role!: ProfessionalRole
 
