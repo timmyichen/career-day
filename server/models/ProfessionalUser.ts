@@ -3,33 +3,33 @@ import Companies from './Companies';
 import Users from './Users';
 
 export enum ProfessionalRole {
-    NONE = "None",
-    ACCT = "Accounting",
-    ADMIN = "Administrative",
-    DESIGN = "Arts and Design",
-    BIZDEV = "Business Development",
-    CSS = "Community & Social Services",
-    CONSULT = "Consulting",
-    EDU = "Education",
-    ENG = "Engineering",
-    ENTRE = "Entrepreneurship",
-    FIN = "Finance",
-    HEALTH = "Healthcare Services",
-    HR = "Human Resources",
-    IT = "Information Technology",
-    LEGAL = "Legal",
-    MKTG = "Marketing",
-    COMMS = "Media & Communications",
-    MPS = "Military & Protective Services",
-    OPS = "Operations",
-    PM = "Product Management",
-    PRODUCT = "Program & Product Management",
-    PURCHASE = "Purchasing",
-    QA = "Quality Assurance",
-    RE = "Real Estate",
-    RESEARCH = "Research",
-    SALES = "Sales",
-    SUPPORT = "Support"
+  NONE = 'None',
+  ACCT = 'Accounting',
+  ADMIN = 'Administrative',
+  DESIGN = 'Arts and Design',
+  BIZDEV = 'Business Development',
+  CSS = 'Community & Social Services',
+  CONSULT = 'Consulting',
+  EDU = 'Education',
+  ENG = 'Engineering',
+  ENTRE = 'Entrepreneurship',
+  FIN = 'Finance',
+  HEALTH = 'Healthcare Services',
+  HR = 'Human Resources',
+  IT = 'Information Technology',
+  LEGAL = 'Legal',
+  MKTG = 'Marketing',
+  COMMS = 'Media & Communications',
+  MPS = 'Military & Protective Services',
+  OPS = 'Operations',
+  PM = 'Product Management',
+  PRODUCT = 'Program & Product Management',
+  PURCHASE = 'Purchasing',
+  QA = 'Quality Assurance',
+  RE = 'Real Estate',
+  RESEARCH = 'Research',
+  SALES = 'Sales',
+  SUPPORT = 'Support',
 }
 
 @Entity()
@@ -46,11 +46,10 @@ export default class ProfessionalUsers extends BaseEntity {
   company_id!: string;
 
   @Column({
-    type: "enum", 
+    type: 'enum',
     nullable: false,
     enum: ProfessionalRole,
-    default: ProfessionalRole.NONE
+    default: ProfessionalRole.NONE,
   })
-  role!: ProfessionalRole
-
+  role!: ProfessionalRole;
 }
