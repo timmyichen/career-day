@@ -18,5 +18,5 @@ export default class ProfessionalUsers extends BaseEntity {
 
   @ManyToOne(() => Roles, (role) => role.id)
   @JoinColumn()
-  roles_id!: string;
+  role_id!: string;
 }
