@@ -1,4 +1,5 @@
-import { BaseEntity, Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import { BaseEntity, Column, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
+import Industries from './Industries';
 
 @Entity()
 export default class Companies extends BaseEntity {
@@ -11,8 +12,9 @@ export default class Companies extends BaseEntity {
   @Column({ length: 256, nullable: false })
   location!: string;
 
-  @Column({ length: 100, nullable: false })
-  industry!: string;
+  @ManyToOne(() => Industries, (industry) => industry.id)
+  @JoinColumn()
+  industry_id!: string;
 
   @Column({ type: 'text', default: '' })
   description?: string;
