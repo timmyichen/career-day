@@ -4,13 +4,18 @@ import {
   Column,
   Entity,
   ManyToOne,
+  ManyToMany,
   JoinColumn,
+  JoinTable,
   PrimaryColumn,
   PrimaryGeneratedColumn,
   CreateDateColumn,
   UpdateDateColumn,
 } from 'typeorm';
 import Users from './Users';
+import Roles from './Roles';
+import Industries from './Industries';
+
 
 export enum RequestStatus {
   OPEN = 'open', //created and accepting likes
@@ -33,7 +38,7 @@ export default class Requests extends BaseEntity {
   @ManyToOne(() => Users, (user) => user.id)
   @JoinColumn()
   @PrimaryColumn()
-  user_id!: number;
+  requester_id!: number;
 
   @Field()
   @Column({ length: 100, nullable: false })
@@ -58,11 +63,12 @@ export default class Requests extends BaseEntity {
   @Field()
   @ManyToOne(() => Industries, (industry) => industry.id)
   @JoinColumn()
-  industry_id!: string;
+  industry_id!: number;
 
+  @Field()
   @ManyToOne(() => Roles, (role) => role.id)
   @JoinColumn()
-  role_id!: string;
+  role_id!: number;
 
   @Field()
   @Column({
