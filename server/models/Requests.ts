@@ -16,7 +16,6 @@ import Users from './Users';
 import Roles from './Roles';
 import Industries from './Industries';
 
-
 export enum RequestStatus {
   OPEN = 'open', //created and accepting likes
   MATCHED = 'matched', //requester and liker match
