@@ -15,6 +15,7 @@ import {
 import Users from './Users';
 import Roles from './Roles';
 import Industries from './Industries';
+import ProfessionalUser from './ProfessionalUser'
 
 export enum RequestStatus {
   OPEN = 'open', //created and accepting likes
@@ -76,4 +77,8 @@ export default class Requests extends BaseEntity {
     default: RequestStatus.OPEN,
   })
   status!: RequestStatus;
+
+  @ManyToMany(() => ProfessionalUser)
+  @JoinTable()
+  followers!: ProfessionalUser[];
 }

@@ -1,7 +1,8 @@
-import { BaseEntity, Entity, JoinColumn, ManyToOne, OneToOne, PrimaryColumn, Unique } from 'typeorm';
+import { BaseEntity, Entity, JoinColumn, ManyToOne, OneToOne, ManyToMany, PrimaryColumn, Unique } from 'typeorm';
 import Companies from './Companies';
 import Users from './Users';
 import Roles from './Roles';
+import Requests from './Requests';
 
 @Entity()
 @Unique(['user_id'])
@@ -19,4 +20,7 @@ export default class ProfessionalUsers extends BaseEntity {
   @ManyToOne(() => Roles, (role) => role.id)
   @JoinColumn()
   role_id!: string;
+
+  @ManyToMany(() => Requests)
+  requests!: Requests[];
 }
